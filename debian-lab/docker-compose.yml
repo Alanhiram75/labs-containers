@@ -1,0 +1,10 @@
+services:
+  debian:
+    image: debian:bookworm
+    container_name: debian-lab
+    restart: "no"
+    stdin_open: true
+    tty: true
+    working_dir: /root
+    volumes:
+      - ./workspace:/root/workspace
