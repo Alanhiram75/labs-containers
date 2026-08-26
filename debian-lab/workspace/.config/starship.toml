@@ -33,7 +33,7 @@ text_light = "#041e20"
 [username]
 style_user = 'os'
 style_root = 'os_admin'
-format = '[]($style)[  debian](bg:$style fg:text_light)[]($style)'
+format = '[]($style)[ Lab Debian](bg:$style fg:text_light)[]($style)'
 disabled = false
 show_always = true
 
