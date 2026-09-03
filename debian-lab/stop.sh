@@ -1,5 +1,6 @@
 #!/bin/bash
 
-echo "=== Deteniendo Debian ==="
+echo ""
+echo "🛑 Deteniendo laboratorio Debian..."
 podman-compose down
-echo "Contenedor detenido. Los archivos en workspace/ se mantienen."
+echo "✅ Laboratorio detenido. Los archivos en workspace/ se mantienen."

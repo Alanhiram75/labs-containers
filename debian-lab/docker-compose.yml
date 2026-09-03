@@ -1,10 +1,12 @@
 services:
   debian:
-    image: debian:bookworm
+    build: .
     container_name: debian-lab
     restart: "no"
     stdin_open: true
     tty: true
     working_dir: /root
     volumes:
+      - ./workspace/.config/starship.toml:/root/.config/starship.toml:ro
+      - ./workspace/.config/config.jsonc:/root/.config/fastfetch/config.jsonc:ro
       - ./workspace:/root/workspace

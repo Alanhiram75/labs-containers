@@ -3,40 +3,34 @@ set -e
 
 CONTAINER="sqlserver-lab"
 
-echo "=== Laboratorio SQL Server 2022 ==="
-echo ""
-
-# Verificar Podman
 if ! command -v podman &> /dev/null; then
-    echo "Error: Podman no esta instalado."
+    echo "🛑 Error: Podman no esta instalado."
     echo "Instala con: sudo pacman -S podman podman-compose"
     exit 1
 fi
 
-# Verificar si el contenedor ya existe
+echo ""
+echo "🚀 Iniciando laboratorio SQL Server..."
+
 if podman ps -a --format '{{.Names}}' | grep -q "^${CONTAINER}$"; then
-    # Contenedor existe, verificar si esta corriendo
     if podman ps --format '{{.Names}}' | grep -q "^${CONTAINER}$"; then
-        echo "El contenedor ya esta corriendo."
+        echo "✅ Contenedor ya en ejecucion."
     else
-        echo "Iniciando contenedor existente..."
         podman start "$CONTAINER"
+        sleep 3
+        echo "✅ Contenedor iniciado."
     fi
 else
-    echo "Creando y levantando contenedor..."
-    podman-compose up -d
+    podman-compose up -d -t 0
 fi
 
 echo ""
-echo "Esperando a que SQL Server este listo..."
 sleep 5
 
-# Verificar que este listo
 for i in {1..30}; do
     if podman exec "$CONTAINER" /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'Lab@2026!' -C -Q "SELECT 1" &>/dev/null; then
         echo ""
-        echo "SQL Server listo."
-        echo ""
+        echo "✅ Servidor SQL activo."
         exit 0
     fi
     echo -n "."
@@ -44,6 +38,6 @@ for i in {1..30}; do
 done
 
 echo ""
-echo "Error: SQL Server no respondio a tiempo."
+echo "🛑 Error: SQL Server no respondio a tiempo."
 echo "Revisa los logs: podman logs $CONTAINER"
 exit 1

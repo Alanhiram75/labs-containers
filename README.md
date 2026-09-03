@@ -13,7 +13,7 @@ SQL Server 2022 Developer Edition, ideal para aprender bases de datos relacional
 | **Puerto** | `localhost:1433` |
 | **Usuario** | `sa` |
 | **Contraseña** | `Lab@2026!` |
-| **Cliente recomendado** | Azure Data Studio, DBeaver, o `sqlcmd` |
+| **Cliente recomendado** | DBeaver (configurado), o `sqlcmd` |
 
 ```bash
 cd sqlserver-lab
