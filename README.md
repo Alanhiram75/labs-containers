@@ -64,6 +64,8 @@ Cada laboratorio es un directorio independiente con:
 
 Los datos se almacenan en volúmenes persistentes. Solo `podman-compose down -v` elimina todo.
 
+![Arquitectura de contenedores](/arquitectura%20de%20contenedores.png)
+
 ## Contribuir
 
 ¿Tienes un laboratorio que quieras agregar? Los pasos son:

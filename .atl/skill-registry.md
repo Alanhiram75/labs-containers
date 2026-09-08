@@ -8,7 +8,6 @@ Last updated: 2026-09-08
 
 - /home/hiram/.agents/skills
 - /home/hiram/.config/opencode/skills
-- /home/hiram/.gemini/skills
 - /home/hiram/.gemini/antigravity-cli/skills
 
 ## Contract

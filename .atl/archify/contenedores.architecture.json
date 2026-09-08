@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Laboratorios Podman: arquitectura de contenedores",
+    "quality_profile": "showcase",
+    "views": [
+      { "id": "sqlserver-path", "label": "Ruta SQL Server", "focus": ["cliente-sql", "sqlserver", "vol-sqldata"], "note": "El cliente accede al puerto 1433 y los datos viven en el volumen persistente." },
+      { "id": "debian-path", "label": "Laboratorio Debian", "focus": ["terminal-debian", "debian", "workspace"], "note": "Terminal interactiva con herramientas y workspace persistente montado en /root/workspace." },
+      { "id": "plataforma", "label": "Plataforma Host", "focus": ["podman", "debian", "sqlserver"], "note": "Ambos contenedores corren sobre Podman en el host." }
+    ]
+  },
+  "components": [
+    { "id": "podman", "type": "backend", "label": "Podman", "sublabel": "motor + podman-compose", "pos": [400, 60], "size": [200, 90], "tag": "orquestación" },
+    { "id": "debian", "type": "backend", "label": "Debian 12 lab", "sublabel": "contenedor `debian-lab`", "pos": [240, 240], "size": [240, 120], "tag": "TTY interactivo" },
+    { "id": "sqlserver", "type": "database", "label": "SQL Server 2022", "sublabel": "contenedor `sqlserver-lab` :1433", "pos": [500, 240], "size": [300, 120], "tag": "Developer Edition" },
+    { "id": "workspace", "type": "external", "label": "workspace/", "sublabel": "en /root/workspace", "pos": [240, 480], "size": [240, 80] },
+    { "id": "vol-sqldata", "type": "database", "label": "volumen `sqldata`", "sublabel": "en /var/opt/mssql", "pos": [500, 480], "size": [300, 80] },
+    { "id": "terminal-debian", "type": "frontend", "label": "Terminal", "sublabel": "connect.sh · sesión", "pos": [20, 250], "size": [140, 80] },
+    { "id": "cliente-sql", "type": "frontend", "label": "Cliente SQL", "sublabel": "DBeaver · sqlcmd", "pos": [860, 260], "size": [150, 80] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Host Arch Linux — Labs Podman", "wraps": ["podman", "debian", "sqlserver", "workspace", "vol-sqldata"] }
+  ],
+  "connections": [
+    { "id": "podman-to-debian", "from": "podman", "to": "debian", "label": "inicia contenedor", "fromSide": "bottom", "toSide": "top" },
+    { "id": "podman-to-sql", "from": "podman", "to": "sqlserver", "label": "inicia contenedor", "fromSide": "bottom", "toSide": "top" },
+    { "id": "debian-workspace", "from": "debian", "to": "workspace", "label": "monta", "variant": "dashed", "fromSide": "bottom", "toSide": "top", "labelDy": 46 },
+    { "id": "sql-volume", "from": "sqlserver", "to": "vol-sqldata", "label": "persiste", "variant": "dashed", "fromSide": "bottom", "toSide": "top", "labelDy": 46 },
+    { "id": "conexion-terminal", "from": "terminal-debian", "to": "debian", "label": "conecta", "variant": "emphasis", "fromSide": "right", "toSide": "left" },
+    { "id": "conexion-cliente", "from": "cliente-sql", "to": "sqlserver", "label": "TDS :1433", "variant": "emphasis", "fromSide": "left", "toSide": "right" }
+  ],
+  "cards": [
+    { "dot": "emerald", "title": "Debian lab", "items": ["Debian 12 Bookworm: vim / nano / gcc / make / git / curl / wget", "Starship + Fastfetch preinstalados", "Workspace persistente montado en /root/workspace"] },
+    { "dot": "cyan", "title": "SQL Server lab", "items": ["SQL Server 2022 Developer Edition", "Puerto host 1433 → 1433", "Volumen `sqldata` en /var/opt/mssql", "Usuario `sa` + MSSQL_PID Developer"] },
+    { "dot": "amber", "title": "Ciclo de vida", "items": ["start.sh · stop.sh · connect.sh por laboratorio", "Solo `podman-compose down -v` elimina los datos persistentes"] }
+  ]
+}
