@@ -30,6 +30,8 @@ podman-compose down -v  # Eliminar completamente
 
 Debian 12 (Bookworm) para practicar comandos y administración de Linux.
 
+![Debian](/Debian.png)
+
 La carpeta `debian-lab/workspace/` se monta en `/root/workspace/` dentro del contenedor. Los archivos persisten entre sesiones.
 
 ```bash
