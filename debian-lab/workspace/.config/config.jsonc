@@ -7,6 +7,9 @@
             "top": 1,
             "bottom": 1,
             "right": 1
+        },
+        "color": {
+            "1": "#d70a53"
         }
     },
 
@@ -22,23 +25,23 @@
         {
             "type": "os",
             "key": "Hp",
-            "keyColor": "#d5e6d6",
-            "outputColor": "#d5e6d6"
+            "keyColor": "#d70a53",
+            "outputColor": "#d70a53"
         },
         {
             "type": "kernel",
             "key": " ├ 󰌽 ",
-            "keyColor": "#d5e6d6"
+            "keyColor": "#d70a53"
         },
         {
             "type": "shell",
             "key": " ├ 󰞷 ",
-            "keyColor": "#d5e6d6"
+            "keyColor": "#d70a53"
         },
         {
             "type": "memory",
             "key": " └ 󰍛 ",
-            "keyColor": "#d5e6d6"
+            "keyColor": "#d70a53"
         },
         "break"
     ]

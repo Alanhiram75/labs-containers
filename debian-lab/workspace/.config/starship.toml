@@ -13,25 +13,52 @@ $cmd_duration
 
 add_newline = true
 
-palette = "gruvbox"
+palette = "debian"
 
-[palettes.gruvbox]
-arrow = "#7ca28b"
-os = "#d5e6d6"
-os_admin = "#d5e6d6"
-directory = "#153c32"
-time = "#21564c"
-node = "#7ca28b"
-git = "#21564c"
-git_status = "#7ca28b"
-python = "#7ca28b"
-rust = "#7ca28b"
-duration = "#21564c"
-text_color = "#d5e6d6"
-text_light = "#041e20"
+[palettes.debian]
+# Semantics
+arrow      = "#d70a53"  # Debian Red
+os         = "#42484b"  # surface1
+os_admin   = "#d70a53"  # Debian Red
+directory  = "#42484b"  # surface1
+time       = "#42484b"  # surface1
+node       = "#d70a53"  # Debian Red
+git        = "#42484b"  # surface1
+git_status = "#d70a53"  # Debian Red
+python     = "#d70a53"  # Debian Red
+rust       = "#d70a53"  # Debian Red
+duration   = "#42484b"  # surface1
+text_color = "#e3e2e3"  # text
+text_light = "#e3e2e3"  # text
+
+# Standard colors
+blue    = "#d3c0dc"
+red     = "#d70a53"
+green   = "#b1cad8"
+yellow  = "#bfc8ce"
+cyan    = "#bfc8ce"
+magenta = "#b1cad8"
+white   = "#e3e2e3"
+black   = "#42484b"
+
+# Text shades
+text     = "#e3e2e3"
+subtext1 = "#e3e2e3"
+subtext0 = "#8c9195"
+
+# Surface shades
+overlay2 = "#8c9195"
+overlay1 = "#8c9195"
+overlay0 = "#42484b"
+surface2 = "#42484b"
+surface1 = "#42484b"
+surface0 = "#121314"
+base     = "#121314"
+mantle   = "#121314"
+crust    = "#121314"
 
 [username]
-style_user = 'os'
+style_user = 'os_admin'
 style_root = 'os_admin'
 format = '[]($style)[ Lab Debian](bg:$style fg:text_light)[]($style)'
 disabled = false
