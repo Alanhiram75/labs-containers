@@ -4,6 +4,24 @@ Entornos de laboratorio listos para usar con Podman. Contenedores preconfigurado
 
 ## Laboratorios disponibles
 
+### Debian (`debian-lab/`)
+
+Debian 12 (Bookworm) para practicar comandos y administración de Linux.
+
+![Debian](/Debian.png)
+
+La carpeta `debian-lab/workspace/` se monta en `/root/workspace/` dentro del contenedor. Los archivos persisten entre sesiones.
+
+```bash
+cd debian-lab
+./start.sh              # Iniciar contenedor (instala herramientas la primera vez)
+./connect.sh            # Abrir terminal dentro del contenedor
+./stop.sh               # Detener
+podman-compose down -v  # Eliminar completamente
+```
+
+---
+
 ### SQL Server (`sqlserver-lab/`)
 
 SQL Server 2022 Developer Edition, ideal para aprender bases de datos relacionales.
@@ -25,22 +43,6 @@ podman-compose down -v  # Eliminar completamente
 > Si aparece error de certificado SSL: en la conexión ir a **Advanced** → **Encrypt** → `False`, o marcar **Trust server certificate**.
 
 ---
-
-### Debian (`debian-lab/`)
-
-Debian 12 (Bookworm) para practicar comandos y administración de Linux.
-
-![Debian](/Debian.png)
-
-La carpeta `debian-lab/workspace/` se monta en `/root/workspace/` dentro del contenedor. Los archivos persisten entre sesiones.
-
-```bash
-cd debian-lab
-./start.sh              # Iniciar contenedor (instala herramientas la primera vez)
-./connect.sh            # Abrir terminal dentro del contenedor
-./stop.sh               # Detener
-podman-compose down -v  # Eliminar completamente
-```
 
 ## Requisitos
 
