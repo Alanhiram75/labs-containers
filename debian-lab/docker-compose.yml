@@ -7,6 +7,10 @@ services:
     tty: true
     working_dir: /root
     volumes:
+      - debian-state:/root
+      - ./workspace:/root/workspace
       - ./workspace/.config/starship.toml:/root/.config/starship.toml:ro
       - ./workspace/.config/config.jsonc:/root/.config/fastfetch/config.jsonc:ro
-      - ./workspace:/root/workspace
+
+volumes:
+  debian-state:

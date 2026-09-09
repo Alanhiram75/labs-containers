@@ -3,7 +3,7 @@ FROM debian:bookworm
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y \
-        vim nano gcc make git curl wget ca-certificates \
+        vim nano gcc make git curl wget ca-certificates sudo \
     && rm -rf /var/lib/apt/lists/*
 
 RUN curl -sS https://starship.rs/install.sh | sh -s -- -y \

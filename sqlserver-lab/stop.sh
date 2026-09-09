@@ -1,7 +1,8 @@
 #!/bin/bash
 
+CONTAINER="sqlserver-lab"
+
 echo ""
-echo "🛑 Deteniendo laboratorio SQL Server..."
-podman-compose down
-echo "✅ Laboratorio detenido. Los datos se mantienen en el volumen."
-echo "Para eliminar los datos: podman-compose down -v"
+echo "Deteniendo laboratorio SQL Server..."
+podman stop "$CONTAINER" 2>/dev/null
+echo "Contenedor detenido. Todos los datos se mantienen."
