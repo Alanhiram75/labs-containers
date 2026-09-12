@@ -14,11 +14,11 @@ echo "🚀 Iniciando laboratorio SQL Server..."
 
 if podman ps -a --format '{{.Names}}' | grep -q "^${CONTAINER}$"; then
     if podman ps --format '{{.Names}}' | grep -q "^${CONTAINER}$"; then
-        echo "✅ Contenedor ya en ejecucion."
+        echo "Contenedor ya en ejecucion."
     else
         podman start "$CONTAINER"
         sleep 3
-        echo "✅ Contenedor iniciado."
+        echo "Contenedor iniciado."
     fi
 else
     podman-compose up -d -t 0
