@@ -1,10 +1,14 @@
 services:
   debian:
-    build: .
+    image: localhost/debian-lab-snapshot:latest
     container_name: debian-lab
     restart: "no"
     stdin_open: true
     tty: true
+    cap_add:
+      - NET_RAW
+    ports:
+      - "2222:22"
     working_dir: /root
     volumes:
       - debian-state:/root
