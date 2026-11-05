@@ -1,6 +1,7 @@
 services:
   debian:
     image: localhost/debian-lab-snapshot:latest
+    build: .
     container_name: debian-lab
     restart: "no"
     stdin_open: true

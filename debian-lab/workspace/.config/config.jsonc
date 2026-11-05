@@ -24,23 +24,23 @@
         "break",
         {
             "type": "os",
-            "key": "Hp",
+            "key": "󰌢 ",
             "keyColor": "#d70a53",
             "outputColor": "#d70a53"
         },
         {
             "type": "kernel",
-            "key": " ├ 󰌽 ",
+            "key": "├ 󰌽 ",
             "keyColor": "#d70a53"
         },
         {
             "type": "shell",
-            "key": " ├ 󰞷 ",
+            "key": "├ 󰞷 ",
             "keyColor": "#d70a53"
         },
         {
             "type": "memory",
-            "key": " └ 󰍛 ",
+            "key": "└ 󰍛 ",
             "keyColor": "#d70a53"
         },
         "break"

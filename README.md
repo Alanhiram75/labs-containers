@@ -12,6 +12,8 @@ Debian 12 (Bookworm) para practicar comandos y administración de Linux.
 
 La carpeta `debian-lab/workspace/` se monta en `/root/workspace/` dentro del contenedor. Los archivos persisten entre sesiones.
 
+La imagen `localhost/debian-lab-snapshot:latest` se construye desde `debian-lab/Dockerfile` (con las herramientas ya instaladas) la primera vez que se ejecuta `./start.sh`, o automáticamente si la imagen se elimina (por ejemplo con `podman system prune`). No se descarga de ningún registro.
+
 ```bash
 cd debian-lab
 ./start.sh              # Iniciar contenedor (instala herramientas la primera vez)
