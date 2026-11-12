@@ -1,0 +1,6 @@
+# The workspace is shared with the container; keep the sample app configs tracked.
+/workspace/*
+!/workspace/.config/
+/workspace/.config/*
+!/workspace/.config/config.jsonc
+!/workspace/.config/starship.toml
