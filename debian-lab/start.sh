@@ -25,4 +25,4 @@ else
 fi
 
 echo ""
-echo "Laboratorio activo. Usa './connect.sh' para entrar."
+echo "Laboratorio activo."
